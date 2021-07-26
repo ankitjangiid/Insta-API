@@ -77,7 +77,7 @@ try {
 
 let x, y, followsYou, youFollows, accountYouFollowButTheyDont=[], accountTheyFollowButYouDont=[], verifiedAccountYouFollow=[], verifiedAccountFollowYou=[];
 for(x = 0; x < followings.length; x++) {
-  if(followings[x].is_verified === true) {
+  if(followings[x].is_verified) {
     verifiedAccountYouFollow.push(followings[x].username);
   }
   followsYou = false;
@@ -92,7 +92,7 @@ for(x = 0; x < followings.length; x++) {
   }
 }
 for(x = 0; x < followers.length; x++) {
-  if(followers[x].is_verified === true) {
+  if(followers[x].is_verified) {
     verifiedAccountFollowYou.push(followers[x].username);
   }
   youFollows = false;

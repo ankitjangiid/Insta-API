@@ -7,6 +7,7 @@
 -> Verified Accounts following the user
 
 Also You can find out the 'Following' and 'Followers' list.
+To find the list of followings and followers uncomment the line 39 and 72.
 
 
 ## How to Run

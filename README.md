@@ -15,7 +15,7 @@ To find the list of followings and followers uncomment the line 39 and 72.
 **1.** Open Instagram on a browser(recommended Chrome) [https://www.instagram.com/](https://www.instagram.com/) and login with you username and password\
   **Note:** You can only find the list of users that you're following or that have public account\
 **2.** After logging in open inspect mode(right click -> inspect or ctrl+shift+i) there from top select Console\
-**3.** Now copy the code and paste it in console\
+**3.** Now copy the code from "Instagram_API.js" file and paste it in console\
 **4.** Rename the username on line 1 with the username of user who's list you want to get\
 **5.** Click enter
 

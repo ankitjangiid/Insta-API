@@ -31,6 +31,7 @@ try {
             return {
               username: node.username,
               full_name: node.full_name,
+              is_verified: node.is_verified,
             };
           })
         );
@@ -74,24 +75,26 @@ try {
   console.log("Invalid username");
 }
 
-let x, y, followsYou, youFollows, accountYouFollowButTheyDont=[], accountTheyFollowButYouDont=[], verifiedAccountYouFollow=[];
+let x, y, followsYou, youFollows, accountYouFollowButTheyDont=[], accountTheyFollowButYouDont=[], verifiedAccountYouFollow=[], verifiedAccountFollowYou=[];
 for(x = 0; x < followings.length; x++) {
   if(followings[x].is_verified === true) {
     verifiedAccountYouFollow.push(followings[x].username);
-  } else {
-    followsYou = false;
-    for(y = 0; y < followers.length; y++) {
-      if(followings[x].username === followers[y].username) {
-        followsYou = true;
-        break;
-      }
+  }
+  followsYou = false;
+  for(y = 0; y < followers.length; y++) {
+    if(followings[x].username === followers[y].username) {
+      followsYou = true;
+      break;
     }
-    if(followsYou === false) {
-      accountYouFollowButTheyDont.push(followings[x].username);
-    }
+  }
+  if(followsYou === false) {
+    accountYouFollowButTheyDont.push(followings[x].username); 
   }
 }
 for(x = 0; x < followers.length; x++) {
+  if(followers[x].is_verified === true) {
+    verifiedAccountFollowYou.push(followers[x].username);
+  }
   youFollows = false;
   for(y = 0; y < followings.length; y++) {
     if(followings[y].username === followers[x].username) {
@@ -107,5 +110,7 @@ console.log("Account You Follow But they Don't: ");
 console.log(accountYouFollowButTheyDont);
 console.log("Account They follow but you don't: ");
 console.log(accountTheyFollowButYouDont);
-console.log("Varified Accounts you follow: ");
+console.log("Verified Accounts you follow: ");
 console.log(verifiedAccountYouFollow);
+console.log("Verified Accounts that follows you: ");
+console.log(verifiedAccountFollowYou);
